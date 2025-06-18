@@ -1,0 +1,24 @@
+{% extends 'admin/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="content-wrapper adminCtn">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Models /</span> MobileNet</h4>
+        <div class="row mb-5 d-flex justify-content-center align-items-center">
+            <div class="col-md-6 col-lg-6 mb-3">
+            <div class="card text-center" id="admin_card">
+                <div class="card-body">
+                    <h5 class="card-title">MobileNet Model</h5>
+                    <p class="card-text">This action will generate the model results based on the uploaded dataset </p>
+                    <a href="{% url 'run_mobilenet_result' %}" class="btn btn-primary">Run Mobilenet Model</a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

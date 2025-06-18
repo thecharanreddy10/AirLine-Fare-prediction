@@ -1,0 +1,126 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="page-inner">
+        <div class="page-header">
+            {% comment %} <h3 class="fw-bold mb-3">User Managment</h3> {% endcomment %}
+            <ul class="breadcrumbs mb-2">
+                <li class="nav-home">
+                    <a href="{% url 'user_dashboard' %}">
+                    <i class="icon-home"></i>
+                    </a>
+                </li>
+                <li class="separator">
+                    <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'user_dashboard' %}">Detection</a>
+                </li>
+                <li class="separator">
+                    <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item fw-bold">
+                    <a href="#">About Workout Classfication</a>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-12 col-6 mb-1">
+                <div class="card" id="userCard1">
+                  <div class="card-body text-center">
+                    <span class="fw-semibold d-block mb-3">Real-time Detection</span>
+                    <p class="text-primary mb-2">Automatically identifies whether workers are wearing required safety gear</p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-12 col-6 mb-1">
+                <div class="card" id="userCard2">
+                  <div class="card-body text-center">
+                    <span class="fw-semibold d-block mb-3">Gear Suggestion </span>
+                    <p class="text-warning mb-2">Suggets site managers and employees safety gears based on job roles or site conditions.</p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-12 col-6 mb-1">
+                <div class="card" id="userCard1">
+                    <div class="card-body text-center">
+                        <span class="fw-semibold d-block mb-3">Real-time Detection</span>
+                        <p class="text-primary mb-2">Automatically identifies whether workers are wearing required safety gear</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-12 col-6 mb-1">
+                <div class="card" id="userCard1">
+                  <div class="card-body text-center">
+                    <span class="fw-semibold d-block mb-3">Real-time Detection</span>
+                    <p class="text-primary mb-2">Automatically identifies whether workers are wearing required safety gear</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-between">
+            <div class="col-lg-3 col-md-12 col-6 mb-1">
+                <div class="card" id="userCard1">
+                  <div class="card-body text-center">
+                    <span class="fw-semibold d-block mb-3">Real-time Detection</span>
+                    <p class="text-primary mb-2">Automatically identifies whether workers are wearing required safety gear</p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-12 col-6 mb-3">
+                <img src="{% static 'admin_userTheme\assets\img\gym.jpeg'%}" class="userdashImg rounded"/>
+            </div>
+            <div class="col-lg-3 col-md-12 col-6 mb-1">
+                <div class="card" id="userCard1">
+                  <div class="card-body text-center">
+                    <span class="fw-semibold d-block mb-3">Real-time Detection</span>
+                    <p class="text-primary mb-2">Automatically identifies whether workers are wearing required safety gear</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="col-lg-3 col-md-12 col-6 mb-4">
+                <div class="card" id="userCard1">
+                  <div class="card-body text-center">
+                    <span class="fw-semibold d-block mb-3">Real-time Detection</span>
+                    <p class="text-primary mb-2">Automatically identifies whether workers are wearing required safety gear</p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-12 col-6 mb-4">
+                <div class="card" id="userCard2">
+                  <div class="card-body text-center">
+                    <span class="fw-semibold d-block mb-3">Gear Suggestion </span>
+                    <p class="text-warning mb-2">Suggets site managers and employees safety gears based on job roles or site conditions.</p>
+                    
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-12 col-6 mb-4">
+                <div class="card" id="userCard3">
+                  <div class="card-body text-center">
+                    <span class="fw-semibold d-block mb-3">Reporting</span>
+                    <p class="text-success mb-2">Generates detailed reports tracking safety gear compliance over time for regulation</p>
+
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-12 col-6 mb-4">
+                <div class="card" id="userCard4">
+                  <div class="card-body text-center">
+                    <span class="fw-semibold d-block mb-3">Clean UI</span>
+                    <p class="text-danger mb-2">We provide an interactive, clean user interface for safety gear detection which is easy to use.</p>
+
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,61 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid overflow-hidden mainCtn about py-5">
+  <div class="container py-5">
+        <div class="row mb-5">
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card h-100" id="userCard1">
+                  <div class="card-body">
+                    <h5 class="card-title">Densenet Model</h5>
+                    <h6 class="card-subtitle text-success">High Accuracy -  97.98 %</h6>
+
+                  </div>
+                  <img class="img-fluid" src="{% static 'admin_userTheme\assets\img\densenet.jpg'%}" alt="Card image cap" />
+                  <div class="card-body">
+                    <p class="card-text">DenseNet is a deep learning architecture where each 
+                        layer is directly connected to every other layer, enabling better feature 
+                        propagation and reuse. Its unique feature is this dense connectivity, which 
+                        reduces the number of parameters and improves efficiency, leading to more 
+                        accurate image recognition.</p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card h-100" id="userCard2">
+                  <div class="card-body">
+                    <h5 class="card-title">Mobilenet Model</h5>
+                    <h6 class="card-subtitle text-warning">Moderate Accuracy - 97.43 %</h6>
+                  </div>
+                  <img class="img-fluid" src="{% static 'admin_userTheme\assets\img\xception.jpg'%}" alt="Card image cap" />
+                  <div class="card-body">
+                    <p class="card-text">MobileNet is a neural network optimized for mobile and low-resource 
+                      devices, designed for efficient image classification and detection. Its unique 
+                      feature is the use of depthwise separable convolutions, which drastically reduce 
+                      computation and model size while maintaining high accuracy.</p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-3">
+              <div class="card h-100" id="userCard3">
+                <div class="card-body">
+                  <h5 class="card-title">Inception Model</h5>
+                  <h6 class="card-subtitle text-danger">Low Accuracy  -  94.64 %</h6>
+
+                </div>
+                <img class="img-fluid" src="{% static 'admin_userTheme\assets\img\mobilenet.jpg'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <p class="card-text">
+                    Inception is a deep learning architecture that extends the 
+                        concept of depthwise separable convolutions, offering a more complex and flexible
+                        model for image classification tasks. Its unique feature is the incorporation 
+                        of residual connections between layers, which enhances training efficiency and accuracy
+                  </p>
+                </div>
+              </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock content %}

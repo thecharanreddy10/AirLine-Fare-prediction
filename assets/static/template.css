@@ -1,0 +1,425 @@
+/* .main-container{
+  border: 2px solid red !important;
+  height: 100vh !important;
+  margin-top: 15vh !important;
+} */
+
+.login_formCtn{
+    height: 60%;
+    /* border: 2px solid orange; */
+    text-align: center;
+    padding: 20px !important;
+    background-color: rgba(128, 128, 128, 0.5);
+    border: 2px solid #ffffff;
+    border-radius: 20px ;
+
+}
+.login_form{
+    /* border: 2px solid white; */
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.loginInput{
+    height: 60px !important;
+}
+
+
+.hero-bg {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Adjust to the desired height */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  /* Overlay for the background image */
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent dark overlay */
+    z-index: 1; /* Ensures the overlay sits above the background */
+  }
+  
+  /* Content positioning */
+  .hero-container {
+    position: relative;
+    z-index: 2; /* Ensures the content sits above the overlay */
+  }
+  
+  /* Adjusting the content inside the container */
+  .hero-container .row {
+    position: relative;
+    z-index: 2; /* Ensure the row content sits above the overlay */
+  }
+  
+  /* Text and button styles */
+  .subheading {
+    font-size: 24px;
+    color: #fff;
+  }
+  
+  h1 {
+    font-size: 48px;
+    color: #fff;
+  }
+  
+  .caps {
+    color: #fff;
+    font-size: 16px;
+  }
+  
+  .nav-link.btn.btn-primary {
+    background-color: #ff9900; /* Adjust button color */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .nav-link.btn.btn-primary:hover {
+    background-color: #ff6600; /* Adjust button hover color */
+  }
+
+.register_formCtn{
+    min-height: 60%;
+    /* border: 2px solid orange; */
+    text-align: center;
+    padding: 20px !important;
+    background-color: rgba(128, 128, 128, 0.5);
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+    margin-top: 8%;
+
+}
+.registrationRow{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.otpCtn{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* border: 2px solid red; */
+}
+.otpInput {
+  width: 75px !important;
+  height: 75px !important;
+  font-size: 30px !important;
+  text-align: center;
+  font-weight: 400 !important;
+}
+
+.graphCtn{
+  width: 80%;
+}
+.deleteicon{
+  height: 30px;
+}
+.feedback_Emoji{
+  height: 50px;
+}
+.dashboardImg{
+  height: 300px;
+}
+.profile_Pic{
+  height: 40px !important;
+  width: 40px !important;
+  object-fit: cover;
+}
+.sidenav_um-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100% !important;
+}
+
+.dataVis_img{
+  height: 500px;
+  width: 500px;
+}
+
+#admin_table{
+  animation: slidefade_toright 1s forwards;
+}
+#admin_card{
+  animation: slidefade_toleft 0.8s forwards;
+}
+
+#previewCtn{
+  animation: slidefade_toright 1s forwards;
+}
+
+#adminDashCard1{
+  background-color: rgba(196, 215, 255, 0.3);
+  animation: slidefade_toleft1 1s forwards;
+}
+
+#adminDashCard2{
+  background-color: rgba(255, 244, 181, 0.3);
+  animation: slidefade_toleft1 1s forwards;
+}
+
+#adminDashCard3{
+  background-color: rgba(160, 214, 131, 0.2);
+  animation: slidefade_toleft1 1.5s forwards;
+}
+
+#adminDashCard4{
+  background-color: rgba(255, 170, 170, 0.2);
+  animation: slidefade_toleft1 1.5s forwards;
+}
+
+#userCard1{
+  animation: slidefade_toright 1.5s forwards;
+}
+
+#userCard2{
+  animation: slidefade_toright 1.5s forwards;
+}
+
+#userCard3{
+  animation: slidefade_toright 1s forwards;
+}
+
+#userCard4{
+  animation: slidefade_toright 1s forwards;
+}
+
+
+@keyframes slidefade_toright {
+  0% {
+      transform: translateX(-20%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0%);
+      opacity: 1;
+  }
+}
+@keyframes slidefade_toleft1{
+  0% {
+      transform: translateX(50%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0%);
+      opacity: 1;
+  }
+}
+@keyframes slidefade_toleft {
+  0% {
+      transform: translateX(20%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0%);
+      opacity: 1;
+  }
+}
+
+.adminCtn{
+  /* border: 2px solid red !important; */
+  min-height: 90vh !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tableProfileImg{
+  height: 50px;
+  width: 50px;
+  margin-right: 5px;
+  object-fit: cover;
+}
+.tableCell {
+  max-width: 190px; /* Adjust the width as needed */
+  word-wrap: break-word;
+  white-space: normal; /* Allow content to wrap */
+  vertical-align: center; /* Align content to the top */
+}
+
+.tableCell_small{
+  max-width: 50px !important; /* Adjust the width as needed */
+  word-wrap: break-word;
+  white-space: normal; /* Allow content to wrap */
+  vertical-align: top; /* Align content to the top */
+}
+.tableCell_VS{
+  border: 2px solid red;
+  width: 10px !important;
+}
+
+.user_dash_input{
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+.customNav{
+  background-color: rgba(128, 128, 128, 0.7) !important;
+}
+.navTag{
+  color: #ffffff;
+  font-size: 17px !important;
+  margin-top: 10px;
+}
+.navBrand{
+  color: #f15d30;
+  font-size: 27px !important;
+}
+.navLink{
+  color: #31352f !important;
+}
+.userResult{
+  /* border: 2px solid #ffffff; */
+  min-height: 84vh;
+  /* border: 2px solid red; */
+  margin-top: 16vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.priceCard{
+  height: 200px;
+}
+.prediction_roww{
+  /* border: 2px solid #ffffff; */
+  height: 80vh !important;
+  display: flex;
+  justify-content: center;
+}
+
+.predictedPrice{
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.trendsPageCtn{
+  border: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between !important;
+  width: 100%;
+}
+/* .progress{
+  width: 300px;
+} */
+.userLabelCtn{
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userLabel{
+  font-size: 25px; 
+  font-weight: 600;
+}
+
+.chartCtn{
+  border: 2px solid white !important;
+  background-color: #ffffff !important;
+}
+
+.trendChart{
+  height: 100% !important;
+  width: 80% !important;
+  align-self: center !important;
+}
+
+.customOutlineBtn{
+  color: #ff6600;
+  border: 1px solid #ff6600;
+  width: 150px !important;
+}
+
+.customOutlineBtn:hover{
+  background-color: #ff6600;
+  border: none;
+  transition: 0.3s ease;
+}
+
+
+.profilebg{
+  background-image: url("mainTheme/images/image_3.jpg");
+  padding: 10px;
+  background-size: cover;
+  border-radius: 5px;
+}
+.profileAvatar{
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: #ffffff;
+}
+
+.feedbackform {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #dfdfdf;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.star {
+  font-size: 60px;
+  color: #ddd;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.star:hover,
+.star.selected {
+  color: #f0c14b;
+}
+.star.selected {
+  color: #f0c14b;
+}
+.commentSection{
+  height: 150px;
+}
+
+.resultPage{
+  border: 2px solid red;
+  display: flex;
+  height: 85vh;
+  align-items: center;
+}
+
+.flightList_Item{
+  /* border: 2px solid red !important; */
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.flightList_ImgCtn{
+  height: 150px;
+  width: 150px;
+  /* border: 1px solid black; */
+}
+.flightList_Img{
+  object-fit: cover;
+}

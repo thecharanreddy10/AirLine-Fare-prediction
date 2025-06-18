@@ -1,0 +1,189 @@
+{% extends "main/base.html" %}
+{% block content %}
+{% load static %}
+	
+	<div class="hero-wrap js-fullheight hero-bg" style="background-image: url('{% static 'mainTheme/images/flight-4.jpeg'%}');">
+		<div class="hero-overlay"></div>
+		<div class="hero-container">
+			<div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
+				<div class="col-md-7 ftco-animate d-flex flex-column align-items-start">
+					<span class="subheading">Welcome to Fly Cheap</span>
+					<h1 class="mb-4">Predict Your Perfect Fare Today!</h1>
+					<p class="caps">Get the best fair price for your flight using our ML powered fair price prediction model</p>
+					<a href="{% url 'user_login' %}" class="nav-link btn btn-primary">Start Booking</a>
+				</div>
+				<a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
+					<span class="fa fa-play"></span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<section class="ftco-section services-section">
+		<div class="container">
+		  <div class="row d-flex">
+			<div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate d-flex align-items-center">
+			  <div class="w-100">
+				<span class="subheading">Welcome to Fly Cheap</span>
+				<h2 class="mb-4">Predict your Flight Tickets with ease</h2>
+				<p>Enter your route details, and our advanced predictive models—powered by Random Forest, LGBM, and SVM—will estimate the ticket price for your trip.</p>
+				<p>Get personalized insights and recommendations: whether it’s time to book, wait for a better deal, or skip the route entirely. Your adventure begins here, with smart decisions powered by cutting-edge technology.
+				A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+				<p><a href="{% url 'user_login' %}" class="btn btn-primary py-3 px-4">Start Prediction</a></p>
+			  </div>
+			</div>
+			<div class="col-md-6">
+			  <div class="row">
+				<div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+				  <div class="services services-1 color-1 d-block img" style="background-image: url({% static 'mainTheme/images/services-1.jpg'%});">
+					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+					<div class="media-body">
+					  <h3 class="heading mb-3">Get the Best Route</h3>
+					  <p>Get the best route for your trip with our advanced algorithms and machine learning models.</p>
+					</div>
+				  </div>      
+				</div>
+				<div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+				  <div class="services services-1 color-2 d-block img" style="background-image: url({% static 'mainTheme/images/services-2.jpg'%});">
+					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-map"></span></div>
+					<div class="media-body">
+					  <h3 class="heading mb-3">Predict Flight Prices</h3>
+					  <p>Our advanced predictive models will estimate the ticket price for your trip.</p>
+					</div>
+				  </div>    
+				</div>
+				<div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+				  <div class="services services-1 color-3 d-block img" style="background-image: url({% static 'mainTheme/images/services-3.jpg'%});">
+					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-map"></span></div>
+					<div class="media-body">
+					  <h3 class="heading mb-3">Predict Prices Trends</h3>
+					  <p> Predict prices trends for the upcoming dates</p>
+					</div>
+				  </div>      
+				</div>
+				<div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+				  <div class="services services-1 color-4 d-block img" style="background-image: url({% static 'mainTheme/images/services-4.jpg'%});">
+					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-tour-guide"></span></div>
+					<div class="media-body">
+					  <h3 class="heading mb-3">Make Smart Decisions</h3>
+					  <p>Get personalized insights and recommendations for your trip based on the predicted price</p>
+					</div>
+				  </div>      
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </section>
+
+
+		<section class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center pb-4">
+					<div class="col-md-12 heading-section text-center ftco-animate">
+						<span class="subheading">Destination</span>
+						<h2 class="mb-4">Airlines</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 ftco-animate">
+						<div class="project-wrap">
+							<a href="#" class="img" style="background-image: url({% static 'mainTheme/images/air_asia.png'%});">
+								<span class="price">Rs. 2580/ average price</span>
+							</a>
+							<div class="text p-4">
+								<span class="days">8 Days Tour</span>
+								<h3><a href="#">Air Asia</a></h3>
+								<p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
+								<ul>
+									<li><span class="flaticon-mountains"></span>Economy Class</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 ftco-animate">
+						<div class="project-wrap">
+							<a href="#" class="img" style="background-image: url({% static 'mainTheme/images/air_india.png'%});">
+								<span class="price">Rs. 4150/ average price</span>
+							</a>
+							<div class="text p-4">
+								<span class="days">10 Days Tour</span>
+								<h3><a href="#">Air India</a></h3>
+								<p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
+								<ul>
+									<li><span class="flaticon-mountains"></span>Economy Class</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 ftco-animate">
+						<div class="project-wrap">
+							<a href="#" class="img" style="background-image: url({% static 'mainTheme/images/indigo.png'%});">
+								<span class="price">Rs. 3200/ average price</span>
+							</a>
+							<div class="text p-4">
+								<span class="days">7 Days Tour</span>
+								<h3><a href="#">Indigo</a></h3>
+								<p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
+								<ul>
+									<li><span class="flaticon-king-size"></span>Economy</li>
+									<li><span class="flaticon-sun-umbrella"></span>Business</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 ftco-animate">
+						<div class="project-wrap">
+							<a href="#" class="img" style="background-image: url({% static 'mainTheme/images/go_first.png'%});">
+								<span class="price">Rs. 3550/ average price</span>
+							</a>
+							<div class="text p-4">
+								<span class="days">8 Days Tour</span>
+								<h3><a href="#">GO FIRST</a></h3>
+								<p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
+								<ul>
+									<li><span class="flaticon-mountains"></span>Economy Class</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 ftco-animate">
+						<div class="project-wrap">
+							<a href="#" class="img" style="background-image: url({% static 'mainTheme/images/vistara.png'%});">
+								<span class="price">Rs. 4650/ average price</span>
+							</a>
+							<div class="text p-4">
+								<span class="days">10 Days Tour</span>
+								<h3><a href="#">Vistara</a></h3>
+								<p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
+								<ul>
+									<li><span class="flaticon-king-size"></span>Economy</li>
+									<li><span class="flaticon-sun-umbrella"></span>Business</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 ftco-animate">
+						<div class="project-wrap">
+							<a href="#" class="img" style="background-image: url({% static 'mainTheme/images/spicejet.png'%});">
+								<span class="price">Rs. 2150/ average price</span>
+							</a>
+							<div class="text p-4">
+								<span class="days">10 Days Tour</span>
+								<h3><a href="#">Spice Jet</a></h3>
+								<p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
+								<ul>
+									<li><span class="flaticon-mountains"></span>Economy Class</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</section>
+
+
+{% endblock content %}

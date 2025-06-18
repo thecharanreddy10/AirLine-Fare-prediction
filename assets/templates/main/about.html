@@ -1,0 +1,62 @@
+{% extends "main/base.html" %}
+{% block content %}
+{% load static %}
+
+<section class="ftco-section services-section">
+  <div class="container">
+    <div class="row d-flex">
+      <div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate d-flex align-items-center">
+        <div class="w-100">
+          <span class="subheading">Welcome to Fly Cheap</span>
+          <h2 class="mb-4">Predict your Flight Tickets with ease</h2>
+          <p>Enter your route details, and our advanced predictive models—powered by Random Forest, LGBM, and SVM—will estimate the ticket price for your trip.</p>
+          <p>Get personalized insights and recommendations: whether it’s time to book, wait for a better deal, or skip the route entirely. Your adventure begins here, with smart decisions powered by cutting-edge technology.
+          A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+          <p><a href="{% url 'user_login' %}" class="btn btn-primary py-3 px-4">Start Prediction</a></p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+            <div class="services services-1 color-1 d-block img" style="background-image: url({% static 'mainTheme/images/services-1.jpg'%});">
+              <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Get the Best Route</h3>
+                <p>Get the best route for your trip with our advanced algorithms and machine learning models.</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+            <div class="services services-1 color-2 d-block img" style="background-image: url({% static 'mainTheme/images/services-2.jpg'%});">
+              <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-map"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Predict Flight Prices</h3>
+                <p>Our advanced predictive models will estimate the ticket price for your trip.</p>
+              </div>
+            </div>    
+          </div>
+          <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+            <div class="services services-1 color-3 d-block img" style="background-image: url({% static 'mainTheme/images/services-3.jpg'%});">
+              <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-map"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Predict Prices Trends</h3>
+                <p> Predict prices trends for the upcoming dates</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+            <div class="services services-1 color-4 d-block img" style="background-image: url({% static 'mainTheme/images/services-4.jpg'%});">
+              <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-tour-guide"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Make Smart Decisions</h3>
+                <p>Get personalized insights and recommendations for your trip based on the predicted price</p>
+              </div>
+            </div>      
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

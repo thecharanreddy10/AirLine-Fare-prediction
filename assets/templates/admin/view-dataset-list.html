@@ -1,0 +1,43 @@
+{% extends "admin/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="content-wrapper adminCtn">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">User Management /</span> All Users</h4>
+        <div class="card" id="admin_table">
+            <div class="d-flex align-items-center justify-content-between">
+                <h5 class="card-header">All Users</h5>
+                <a href="{% url 'deleteAll_users' %}" type="button" class="btn rounded-pill btn-outline-danger mx-3" onclick="return confirm('Are you sure you want to delete all users?')">Delete All</a>
+            </div>
+            <div class="table-responsive text-nowrap">
+            <table class="table table-hover">
+
+                <thead class="table-dark">
+                <tr>
+                    <th class="text-white">Db ID</th>
+                    <th class="text-white">Name</th>
+                    <th class="text-white">Size</th>
+                    <th class="text-white">Actions</th>
+                </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                    {% for db in datasets_list %}
+                    <tr>
+                        <td class="tableCell">{{db.dataset_id}}</td>
+                        <td>{{db.dataset_name}}</td>
+                        <td>{{db.formated_file_size}}</td>
+                        <td>
+                            <a class="btn btn-sm btn-primary" href="{% url 'view_dataset_result' db.dataset_id %}"><i class="fa-solid fa-eye m-2"></i>View Dataset</a>
+                            <a class="btn btn-sm btn-danger" onClick="return confirm('Are you sure you want to delete the database?')" href="{% url 'delete_dataset' db.dataset_id %}"><i class="fa-solid fa-trash m-2"></i>Delete Dataset</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

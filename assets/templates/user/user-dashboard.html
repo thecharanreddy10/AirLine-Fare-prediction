@@ -1,0 +1,251 @@
+{% extends "user/base.html" %}
+{% block content %}
+{% load static %}
+	
+	<div class="hero-wrap js-fullheight hero-bg" style="background-image: url('{% static 'mainTheme/images/flight-4.jpeg'%}');">
+		<div class="hero-overlay"></div>
+		<div class="hero-container">
+			<div class="row no-gutters slider-text js-fullheight align-items-center d-flex justify-content-center" style="padding-top: 100px" data-scrollax-parent="true">
+				<div class="col-md-10">
+					<div class="ftco-search d-flex justify-content-between">
+						<div class="">
+							<h1 class="mb-4 text-white">Predict Your Perfect Fare Today!</h1>
+							{% comment %} <a class="btn btn-primary" type="button" href="{% url 'route_list' %}">Search Flights</a> {% endcomment %}
+						</div>
+						<form class="row" method="post" enctype="multipart/form-data">
+							{% csrf_token %}
+							<div class="col-md-12 tab-wrap mb-3">
+								<div class="tab-content" id="v-pills-tabContent">
+									<div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
+										<div action="#" class="search-property-1">
+											<div class="row no-gutters">
+												<div class="col-md d-flex">
+													<div class="form-group p-4">
+														<label for="#">Airline</label>
+														<div class="form-field">
+															<select name="airline" id="" class="form-control">
+																<option value="0">Air Asia</option>
+																<option value="1">Air India</option>
+																<option value="2">Go First</option>
+																<option value="3">Indigo</option>
+																<option value="4">Spice Jet</option>
+																<option value="5">Vistara</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-md d-flex">
+													<div class="form-group p-4">
+														<label for="#">Source</label>
+														<div class="form-field">
+															<select name="source_city" id="" class="form-control">
+																<option value="0">Bangalore</option>
+																<option value="1">Chennai</option>
+																<option value="2">Delhi</option>
+																<option value="3">Hyderabad</option>
+																<option value="4">Kolkata</option>
+																<option value="5">Mumbai</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-md d-flex">
+													<div class="form-group p-4">
+														<label for="#">Destination</label>
+														<div class="form-field">
+															<select name="destination_city" id="" class="form-control">
+																
+																<option value="0">Bangalore</option>
+																<option value="1">Chennai</option>
+																<option value="2">Delhi</option>
+																<option value="3">Hyderabad</option>
+																<option value="4">Kolkata</option>
+																<option value="5">Mumbai</option>
+															</select>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md d-flex">
+													<div class="form-group p-4">
+														<label for="date">Date</label>
+														<div class="form-field">
+															<input type="date" class="form-control" id="date" min="">
+															<input type="text" class="form-control" id="hidden_date" name="days_left" style="display: none">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-12 tab-wrap mt-3">
+								<div class="tab-content" id="v-pills-tabContent">
+									<div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
+										<div action="#" class="search-property-1">
+											<div class="row no-gutters">
+
+												<div class="col-md d-flex">
+													<div class="form-group p-4">
+														<label for="#">Departure Time</label>
+														<div class="form-field">
+															<select name="departure_time" id="" class="form-control">
+																<option value="0">Afternoon</option>
+																<option value="1">Early Morning</option>
+																<option value="2">Evening</option>
+																<option value="3">Late Night</option>
+																<option value="4">Morning</option>
+																<option value="5">Night</option>
+															</select>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md d-flex">
+													<div class="form-group p-4">
+														<label for="#">Class</label>
+														<div class="form-field">
+															<select name="class" id="" class="form-control">
+																<option value="0">Business Class</option>
+																<option value="1">Economy Class</option>
+															</select>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md d-flex">
+													<div class="form-group p-4">
+														<label for="#">Stops</label>
+														<div class="form-field">
+															<select name="stops" id="" class="form-control">
+																<option value="0">Zero</option>
+																<option value="1">One</option>
+																<option value="2">Two or More</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												{% comment %} <div class="col-md d-flex">
+													<div class="form-group p-4">
+														<label for="#">Duration</label>
+														<div class="form-field">
+															<input type="text" class="form-control" name="duration" placeholder="Duration">
+														</div>
+													</div>
+												</div> {% endcomment %}
+												
+												
+												{% comment %} <div class="col-md d-flex">
+													<div class="form-group p-4">
+														<label for="#">Days Left</label>
+														<div class="form-field">
+															<input type="text" class="form-control" name="days_left" placeholder="Days Left">
+														</div>
+													</div>
+												</div> {% endcomment %}
+												<div class="col-lg d-flex">
+													<div class="form-group d-flex w-100 border-0">
+														<div class="form-field w-100 align-items-center d-flex">
+															<button type="submit" class="align-self-stretch form-control btn btn-primary p-0">Search Flights</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<section class="ftco-section services-section">
+		<div class="container">
+			<div class="row d-flex">
+				<div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate d-flex align-items-center">
+					<div class="w-100">
+						<span class="subheading">Welcome to Fly Cheap</span>
+						<h2 class="mb-4">Predict your Flight Tickets with ease</h2>
+						<p>Enter your route details, and our advanced predictive models—powered by Random Forest, LGBM, and SVM—will estimate the ticket price for your trip.</p>
+						<p>Get personalized insights and recommendations: whether it’s time to book, wait for a better deal, or skip the route entirely. Your adventure begins here, with smart decisions powered by cutting-edge technology.
+						A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+						<p><a href="#" class="btn btn-primary py-3 px-4">Search Destination</a></p>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+							<div class="services services-1 color-1 d-block img" style="background-image: url({% static 'mainTheme/images/services-1.jpg'%});">
+								<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-paragliding"></span></div>
+								<div class="media-body">
+									<h3 class="heading mb-3">Get the Best Route</h3>
+									<p>A small river named Duden flows by their place and supplies it with the necessary</p>
+								</div>
+							</div>      
+						</div>
+						<div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+							<div class="services services-1 color-2 d-block img" style="background-image: url({% static 'mainTheme/images/services-2.jpg'%});">
+								<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+								<div class="media-body">
+									<h3 class="heading mb-3">Predict Flight Prices</h3>
+									<p>A small river named Duden flows by their place and supplies it with the necessary</p>
+								</div>
+							</div>    
+						</div>
+						<div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+							<div class="services services-1 color-3 d-block img" style="background-image: url({% static 'mainTheme/images/services-3.jpg'%});">
+								<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-tour-guide"></span></div>
+								<div class="media-body">
+									<h3 class="heading mb-3">Predict Prices Trends</h3>
+									<p>A small river named Duden flows by their place and supplies it with the necessary</p>
+								</div>
+							</div>      
+						</div>
+						<div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+							<div class="services services-1 color-4 d-block img" style="background-image: url({% static 'mainTheme/images/services-4.jpg'%});">
+								<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-map"></span></div>
+								<div class="media-body">
+									<h3 class="heading mb-3">Make Smart Decisions</h3>
+									<p>A small river named Duden flows by their place and supplies it with the necessary</p>
+								</div>
+							</div>      
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		const hidden_date_input = document.getElementById('hidden_date')
+		const today = new Date();
+		const tomorrow = new Date(today);
+		tomorrow.setDate(today.getDate() + 1);
+		const formattedTomorrow = tomorrow.toISOString().split('T')[0];
+	
+		const dateInput = document.getElementById('date');
+		const daysLeftDisplay = document.getElementById('daysLeftDisplay');
+		dateInput.setAttribute('min', formattedTomorrow);
+	
+		dateInput.addEventListener('change', () => {
+			const selectedDate = new Date(dateInput.value);
+			const differenceInTime = selectedDate - today;
+			const daysLeft = Math.ceil(differenceInTime / (1000 * 60 * 60 * 24));
+
+			hidden_date_input.setAttribute("value", daysLeft)
+	
+			if (daysLeft >= 0) {
+				daysLeftDisplay.textContent = `Days Left: ${daysLeft}`;
+			} else {
+				daysLeftDisplay.textContent = "Invalid date selected.";
+			}
+		});
+	</script>
+
+{% endblock content %}

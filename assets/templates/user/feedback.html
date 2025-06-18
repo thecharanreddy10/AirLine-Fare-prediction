@@ -1,0 +1,51 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid overflow-hidden mainCtn about py-5">
+    <div class="container py-5">
+        <div class=" mb-4 p-4 profileCtn" id="admin_card">
+            <!-- Account -->
+            <div class="feedbackCard m-4">
+                <form class="feedbackform shadow" method="post">
+                  {% csrf_token %}
+                  <p>Rate Your Experience</p>
+                  <div class="stars">
+                      <span class="star" data-value="1">&#9733;</span>
+                      <span class="star" data-value="2">&#9733;</span>
+                      <span class="star" data-value="3">&#9733;</span>
+                      <span class="star" data-value="4">&#9733;</span>
+                      <span class="star" data-value="5">&#9733;</span>
+                  </div>
+                  <input type="hidden" name="rating" id="rating" value="" />
+                  <div>
+                    <p>Leave a Comment</p>
+                    <textarea name="comment" id="comment" class="form-control commentSection"></textarea>
+                  </div>
+                  <button class="btn btn-primary rounded-pill m-2" type="submit">Submit Feedback</button>
+              </form>
+              <script>
+                  document.addEventListener('DOMContentLoaded', function() {
+                      const stars = document.querySelectorAll('.star');
+                      const ratingInput = document.getElementById('rating');
+          
+                      stars.forEach(star => {
+                          star.addEventListener('click', function() {
+                              const value = this.getAttribute('data-value');
+                              ratingInput.value = value;
+                              stars.forEach(s => {
+                                  s.classList.remove('selected');
+                                  if (s.getAttribute('data-value') <= value) {
+                                      s.classList.add('selected');
+                                  }
+                              });
+                          });
+                      });
+                  });
+                  
+              </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

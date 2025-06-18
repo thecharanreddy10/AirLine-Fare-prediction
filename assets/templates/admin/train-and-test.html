@@ -1,0 +1,25 @@
+{% extends 'admin/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="content-wrapper adminCtn">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Models /</span> Train and Test</h4>
+        <div class="row mb-5 d-flex justify-content-center align-items-center">
+            <div class="col-md-6 col-lg-6 mb-3">
+            <div class="card text-center" id="admin_card">
+                <div class="card-header">Featured</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Train and Test Models</h5>
+                        <p class="card-text">This action will train and test the models based on the uploaded dataset.</p>
+                        <a href="{% url 'train_and_test_result' %}" class="btn btn-primary">Train and Test Models</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

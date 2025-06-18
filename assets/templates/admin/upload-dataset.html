@@ -1,0 +1,28 @@
+{% extends 'admin/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="content-wrapper adminCtn">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Models /</span> Upload Dataset</h4>
+        <div class="row mb-5 d-flex justify-content-center align-items-center">
+            <div class="col-md-6 col-lg-6 mb-3">
+            <div class="card text-center" id="admin_card">
+                <form class="card-body" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                      <h5 class="card-title">Upload Dataset</h5>
+                      <p>Select a dataset file and upload. <br />Only CSV and txt files are supported.</p>
+                      <input class="form-control" type="file" name="dataset_file" id="formFile" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload Dataset</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

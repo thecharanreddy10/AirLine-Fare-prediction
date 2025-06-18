@@ -1,0 +1,134 @@
+{% extends 'admin/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="content-wrapper adminCtn">
+    <div class="container-xxl flex-grow-1 container-p-y d-flex flex-column justify-content-evenly">
+        <h4 class="fw-bold py-3 mb-1"><span class="text-muted fw-light">Models /</span> Random Forest</h4>
+        <div class="row mb-3 d-flex justify-content-center align-items-center">
+            <div class="col-md-6 col-lg-6 mb-3">
+            <div class="card text-center" id="admin_card">
+                <div class="card-body">
+                    <h5 class="card-title">Random Forest Algorithm</h5>
+                    <p class="card-text">This action will generate the model results based on the uploaded dataset </p>
+                    <a href="{% url 'run_random_forest_result' %}" class="btn btn-primary">Run Algorithm Again</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row d-flex justify-content-between align-items-center">
+                <div class="col-lg-5 col-md-12 col-6 mb-4">
+                    <div class="card">
+                        <h5 class="card-header">Model Accuracy Graph</h5>
+                        <div class="card-body text-center">
+                            <canvas id="myChart" class="comparison_graph"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-6">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 col-12 mb-4">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <small class="text-muted fs-5">Algorithm Name</small>
+                                    <h3 class="card-title mb-2 text-primary fw-semibold fs-3">Random Forest</h3>
+                                    {% comment %} <small class="text-muted fs-4">Model executed successfully</small> {% endcomment %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <small class="text-muted fs-5">Model Accuracy</small>
+                                    <h3 class="card-title mb-2 text-success fw-semibold fs-3">{{results.Accuracy}} %</h3>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <small class="text-muted fs-5">About Model</small>
+                                    <p class="card-title mb-2">{{about_model}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const accuracy = {{results.Accuracy}};
+            const label =  ['Accuracy'];
+
+                         
+            const accuracyChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [0, 100],  // Min and max values for x-axis
+                    datasets: [{
+                        label: label,
+                        data: [{ x: 0, y: 0 }, { x: accuracy, y: accuracy }],
+                        borderColor: 'rgba(105, 108, 255, 1)',
+                        backgroundColor: 'rgba(105, 108, 255, 0.2)',
+                        borderWidth: 2,
+                        fill: false,
+                        tension: 0.1,
+                        pointRadius: 5,
+                        pointBackgroundColor: 'rgba(105, 108, 255, 1)',
+                        pointBorderColor: 'rgba(105, 108, 255, 1)',
+                        pointHoverRadius: 7,
+                        pointHoverBackgroundColor: 'rgba(105, 108, 255, 1)',
+                        pointHoverBorderColor: 'rgba(105, 108, 255, 1)',
+                        showLine: true  // Ensures the line is drawn
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            title: {
+                                display: true,
+                                text: 'Accuracy (%)'
+                            },
+                            min: 0,
+                            max: 100,
+                            ticks: {
+                                stepSize: 10,
+                                callback: function(value) { return value; },
+                                beginAtZero: true
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Accuracy (%)'
+                            },
+                            min: 0,
+                            max: 100,  // Ensures y-axis max value is 100
+                            ticks: {
+                                stepSize: 10,
+                                beginAtZero: true
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false // Hide the legend as we are using labels on points
+                        }
+                    }
+                }
+            });
+        });
+      </script>
+</div>
+
+{% endblock %}

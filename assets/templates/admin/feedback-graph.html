@@ -1,0 +1,64 @@
+{% extends 'admin/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="content-wrapper adminCtn">
+    <div class="container-xxl flex-grow-1 container-p-y d-flex flex-column justify-content-evenly">
+        <h4 class="fw-bold py-3 mb-2"><span class="text-muted fw-light">Feedback Management /</span> Feedback Graph</h4>
+        <div class="row mb-5 d-flex justify-content-center align-items-center">
+            <div class="col-md-12 col-lg-12 mb-3">
+            <div class="card text-center">
+                <div class="card-body d-flex flex-column align-items-center">
+                    <h5 class="card-title">User Feedbacks Graph</h5>
+                    <div class="graphCtn"> 
+                        <canvas id="myChart"></canvas>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+
+        const xValues = ['Very Positive', 'Positive', 'Neutral', 'Negative', 'Very Negative'];
+        const yValues = [{{vp_count}}, {{p_count}}, {{n_count}}, {{neg_count}}, {{vn_count}} ];
+        const barColors = ["rgb(152, 251, 152, 0.6)", "rgb(173, 216, 230, 0.6)","rgba(211, 211, 211, 0.5)", "rgb(255, 204, 153, 0.5)", "rgb(255, 182, 193, 0.5)"];
+        
+        const maxValue = Math.max(...yValues);
+        const yMax = Math.ceil(maxValue / 10) * 10;
+        const yStep = Math.ceil(yMax / 5);
+
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: xValues,
+                datasets: [
+                    {   
+                        label: 'Feedback',
+                        backgroundColor: barColors,
+                        borderWidth: 1,  // Set the border width
+                        borderRadius: 5,  // Set the border radius
+                        data: yValues,
+                        barThickness: 100,
+                    },
+                ],
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                    },
+                    y: {
+                        beginAtZero: true,
+                        max: yMax,
+                        stepSize: yStep,
+                    },
+                },
+            },
+        });
+    </script>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,60 @@
+{% extends 'admin/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="content-wrapper adminCtn">
+    <div class="container-xxl flex-grow-1 container-p-y d-flex flex-column justify-content-evenly">
+        <h4 class="fw-bold py-3 mb-2"><span class="text-muted fw-light">Models /</span> Comparision Graph</h4>
+        <div class="row mb-5 d-flex justify-content-center align-items-center">
+            <div class="col-md-12 col-lg-12 mb-3">
+            <div class="card text-center">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <h5 class="card-title">Models Accuracy Comparision Graph</h5>
+                        <div class="graphCtn"> 
+                            <canvas id="myChart"></canvas>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const xValues = ['Densenet', 'Xception', 'Mobilenet'];
+        const yValues = [{{densenet_data}}, {{xception_data}}, {{mobilenet_data}},];
+        const barColors = ["rgb(255, 182, 193, 0.5)", "rgb(255, 204, 153, 0.5)","rgb(255, 255, 179, 0.5)", "rgb(152, 251, 152, 0.6)", "rgb(173, 216, 230, 0.6)", "rgb(176, 178, 255, 0.6)", "rgb(198, 143, 230, 0.6)", "rgb(221, 160, 221, 0.6)"];
+        
+        new Chart("myChart", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    label: "Accuracy",
+                    backgroundColor: barColors,
+                    borderWidth: 1,  // Set the border width
+                    borderRadius: 5,  // Set the border radius
+                    data: yValues,
+                    barThickness: 90,  // Set the bar width to 50px
+                    maxBarThickness: 150  // Set the maximum bar width to 50px
+                }]
+            },
+            options: {
+                legend: { display: true },
+                title: {
+                    display: true,
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 10
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+</div>
+
+{% endblock content %}

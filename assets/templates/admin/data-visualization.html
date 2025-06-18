@@ -1,0 +1,38 @@
+{% extends 'admin/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="content-wrapper adminCtn">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dataset Management /</span> Data Visualization</h4>
+        <div class="row mb-5 d-flex justify-content-center align-items-center">
+            <div class="col-md-6 col-lg-6 mb-3">
+                <div class="card text-center d-flex align-items-center" id="admin_card">
+                    <img src="{% static 'adminTheme/assets/img/data_exploration.jpeg' %}" class="dataVis_img"/>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 mb-3">
+                <div class="card text-center d-flex align-items-center" id="admin_card">
+                    <img src="{% static 'adminTheme/assets/img/data_exploration1.jpeg' %}" class="dataVis_img"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5 d-flex justify-content-center align-items-center">
+            <div class="col-md-6 col-lg-6 mb-3">
+                <div class="card text-center d-flex align-items-center" id="admin_card">
+                    <img src="{% static 'adminTheme/assets/img/data_exploration2.jpeg' %}" class="dataVis_img"/>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 mb-3">
+                <div class="card text-center d-flex align-items-center" id="admin_card">
+                    <img src="{% static 'adminTheme/assets/img/data_exploration3.jpeg' %}" class="dataVis_img"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

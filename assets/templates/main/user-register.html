@@ -1,0 +1,49 @@
+{% extends "main/base.html" %}
+{% block content %}
+{% load static %}
+<div class="hero-wrap js-fullheight" style="background-image: url('{% static 'mainTheme/images/bg_3.jpg'%}');">
+    <div class="hero-overlay"></div>
+    <div class="hero-container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center d-flex justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-8 ftco-animate register_formCtn">
+                <h1 class="mb-4">New Registration</h1>
+                <form class="contact-form login_form" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="registrationRow">
+                        <div class="form-group w-100 m-3">
+                            <input type="text" class="form-control loginInput" name="username" placeholder="Full Name">
+                        </div>
+                        <div class="form-group w-100 m-3">
+                            <input type="text" class="form-control loginInput" name="phone" placeholder="Phone Number">
+                        </div>
+                    </div>
+                    <div class="registrationRow">
+                        <div class="form-group w-100 m-3">
+                            <input type="text" class="form-control loginInput" name="email" placeholder="Email">
+                        </div>
+                        <div class="form-group w-100 m-3">
+                            <input type="password" class="form-control loginInput" name="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="registrationRow">
+                        <div class="form-group w-100 m-3">
+                            <input type="text" class="form-control loginInput" name="age" placeholder="Age">
+                        </div>
+                        <div class="form-group w-100 m-3">
+                            <input type="text" class="form-control loginInput" name="address" placeholder="Address">
+                        </div>
+                    </div>
+                    <div class="registrationRow">
+                        <div class="form-group w-100 m-3">
+                            <input type="file" id="file-upload" class="form-control loginInput" name="profilepic" placeholder="Upload Profile Picture">
+                        </div>
+                        <div class="form-group w-100 m-3">
+                            <button type="submit" class="btn btn-primary loginInput w-50">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,124 @@
+{% extends "user/base.html" %}
+{% block content %}
+{% load static %}
+
+<div class="hero-wrap js-fullheight detectionCtn" style="background-image: url('{% static 'mainTheme/images/flight-2.jpeg'%}');">
+  <div class="hero-overlay"></div>
+  <div class="hero-container userResult">
+    <div class="row prediction_roww pb-4">
+      <div class="predictedPrice">
+        <div class="col-md-1 ftco-animate text-center">
+          <a href="{% url 'user_dashboard' %}" class="nav-link btn btn-outline-primary customOutlineBtn">Predict Again</a>
+        </div>
+        <div class="col-md-3 ftco-animate text-center">
+            <h4 class="text-white userLabel">Highest Price : <span class="text-danger userLabel">{{max_price}}</span></h4>
+        </div>
+        <div class="col-md-3 ftco-animate text-center">
+          <h4 class="text-white userLabel">Average Price : <span class="text-warning userLabel">{{avg_price}}</span></h4>
+        </div>
+        <div class="col-md-3 ftco-animate text-center">
+          <h4 class="text-white userLabel">Lowest Price : <span class="text-success userLabel">{{min_price}}</span></h4>
+        </div>
+        <div class="col-md-3 ftco-animate text-center">
+          <a href="https://www.makemytrip.com/" target="_blank" class="nav-link btn btn-outline-primary customOutlineBtn">Start Booking</a>
+        </div>
+      </div>
+      <div class="col-md-10 ftco-animate d-flex flex-column align-items-start">
+        <canvas id="myChart" class="trendChart"></canvas>
+      </div>
+    </div>
+    <script>
+      function generateNextDaysList(startDate, increment, count) {
+        const formatted_dates_list = []; // List to store formatted dates in DD-MMM format
+        const currentDate = new Date(startDate); // Start with the provided start date
+        
+        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        
+        for (let i = 0; i < count; i++) {
+          // Format the current date as DD-MMM
+          const day = currentDate.getDate().toString().padStart(2, '0'); // Ensure two digits for day
+          const month = monthNames[currentDate.getMonth()]; // Get the 3-letter month abbreviation
+          const formattedDate = `${day}-${month}`; // Combine day and abbreviated month
+          
+          // Store the formatted date string
+          formatted_dates_list.push(formattedDate);
+          
+          // Increment the date by the specified number of days
+          currentDate.setDate(currentDate.getDate() + increment);
+        }
+        
+        // Return the formatted dates list
+        return formatted_dates_list;
+      }
+    
+      // Calculate tomorrow's date
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(today.getDate() + 1); // Get tomorrow's date
+    
+      // Generate the list of dates
+      const formattedDates = generateNextDaysList(tomorrow, 5, 10);
+    
+      const nxt_analysis = {{ nxt_analysis|safe }};
+    
+      // Call the chart with the formatted dates directly
+      const ctx = document.getElementById('myChart');
+    
+      const config = {
+        type: 'line', // Set the type to 'line'
+        data: {
+          labels: formattedDates, // Use the generated formatted dates
+          datasets: [{
+            label: 'Predicted Price Trends',
+            data: nxt_analysis, // Replace with your actual data
+            borderWidth: 1,
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)', // Optional for better visualization
+          }]
+        },
+        options: {
+          scales: {
+            x: {
+              title: {
+                display: true, // Show the X-axis label
+                text: 'Days from Today',
+                color: 'white' // Set X-axis label color to white
+              },
+              ticks: {
+                color: 'white' // Set X-axis ticks color to white
+              }
+            },
+            y: {
+              title: {
+                display: true, // Show the Y-axis label
+                text: 'Predicted Prices',
+                color: 'white' // Set Y-axis label color to white
+              },
+              ticks: {
+                color: 'white' // Set Y-axis ticks color to white
+              },
+              beginAtZero: true // Ensure Y-axis starts from zero
+            }
+          },
+          plugins: {
+            legend: {
+              labels: {
+                color: 'white' // Set legend label color to white
+              }
+            },
+            tooltip: {
+              bodyColor: 'white', // Set tooltip text color to white
+              titleColor: 'white' // Set tooltip title color to white
+            }
+          }
+        }
+      };
+    
+      // Create the chart
+      new Chart(ctx, config);
+    
+      {% comment %} alert(`Formatted Dates (DD-MMM): ${formattedDates.join(", ")}`); {% endcomment %}
+    </script>
+  </div>
+</div>
+{% endblock content %}

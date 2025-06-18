@@ -1,0 +1,122 @@
+{% extends "user/base.html" %}
+{% block content %}
+{% load static %}
+
+<section class="hero-wrap js-fullheight detectionCtn" style="background-image: url({% static 'mainTheme/images/flight-2.jpeg'%});">
+  <div class="hero-overlay"></div>
+  <div class="hero-container userResult">
+    <div class="row prediction_roww pb-4">
+      <div class="predictedPrice">
+        <div class="col-md-6 text-center heading-section heading-section-white ftco-animate">
+          <h4 class="text-white">Predicted Price</h4>
+          {% if prediction_price > previous_price %}
+             {% if price_difference <= 1000 %}
+                <h1 class="mb-4 text-warning">{{prediction_price}}</h1>
+             {% else %}
+                <h1 class="mb-4 text-danger">{{prediction_price}}</h1>
+             {% endif %}
+          {% elif prediction_price < previous_price %}
+            <h1 class="mb-4 text-success">{{prediction_price}}</h1>
+          {% elif prediction_price == previous_price %}
+            <h1 class="mb-4 text-info">{{prediction_price}}</h1>
+          {% endif %}
+        </div>
+        <div class="col-md-6 text-center heading-section heading-section-white ftco-animate">
+          <h4 class="text-white">Previous Price</h4>
+          <h1 class="mb-4">{{previous_price}}</h1>
+        </div>
+      </div>
+      <div class="col-md-10">
+        <h3 class="text-white">What you should do at this price?</h3>
+        <p>According to our analysis , you should do the following at this price:</p>
+      </div>
+      {% if prediction_price > previous_price %}
+        {% if price_difference <= 1000 %}
+          <div class="col-md-10 userLabelCtn">
+            <p class="text-danger">Skip</p>
+            <p class="text-warning userLabel">Wait</p>
+            <p class="text-info">Okay</p>
+            <p class="text-success">Proceed</p>
+          </div>
+          <div class="col-md-10 progress ftco-animate">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-white" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-white" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+
+        {% else %}
+          <div class="col-md-10 userLabelCtn">
+            <p class="text-danger userLabel">Skip</p>
+            <p class="text-warning">Wait</p>
+            <p class="text-info">Okay</p>
+            <p class="text-success">Proceed</p>
+          </div>
+          <div class="col-md-10 progress ftco-animate">
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-white" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-white" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-white" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        {% endif %}
+
+      {% elif prediction_price < previous_price %}
+      <div class="col-md-10 userLabelCtn">
+        <p class="text-danger">Skip</p>
+        <p class="text-warning">Wait</p>
+        <p class="text-info">Okay</p>
+        <p class="text-success userLabel">Proceed</p>
+      </div>
+      <div class="col-md-10 progress ftco-animate">
+        <div class="progress-bar bg-success" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      {% elif prediction_price == previous_price %}
+      <div class="col-md-10 userLabelCtn">
+        <p class="text-danger">Skip</p>
+        <p class="text-warning">Wait</p>
+        <p class="text-info userLabel">Okay</p>
+        <p class="text-success">Proceed</p>
+      </div>
+      <div class="col-md-10 progress ftco-animate">
+        <div class="progress-bar bg-info" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar bg-info" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar bg-white" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+
+      {% endif %}
+      <div class="col-md-10">
+        <a class="btn btn-primary" type="button" href="{% url 'detection_dashboard' %}">Show Ticket Trends</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('myChart');
+  
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</section>
+
+{% endblock content %}

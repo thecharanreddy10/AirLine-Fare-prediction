@@ -1,0 +1,62 @@
+{% extends 'admin/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="content-wrapper adminCtn">
+    <div class="container-xxl flex-grow-1 container-p-y d-flex flex-column justify-content-evenly">
+      <h4 class="fw-bold py-3 mb-2"><span class="text-muted fw-light">Models /</span> Train and Test Result</h4>
+        <div class="row mb-5 d-flex justify-content-center align-items-center">
+            <div class="col-md-6 col-lg-6 mb-3">
+                <div class="card text-center" id="admin_card">
+                    <div class="card-body">
+                      <h5 class="card-title">Train and Test Models</h5>
+                      <p class="card-text">This action will train and test the models based on the uploaded dataset.</p>
+                      <a href="{% url 'train_and_test_result' %}" class="btn btn-primary">Train and Test Models Again</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-12 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <span class="fw-semibold d-block mb-3">Number of Training Images</span>
+                    <h3 class="card-title text-primary mb-2">330</h3>
+                    
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-12 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <span class="fw-semibold d-block mb-3">Number of Testing Images</span>
+                    <h3 class="card-title text-warning mb-2">330</h3>
+                    
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-12 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <span class="fw-semibold d-block mb-3">Number of Valid Images</span>
+                    <h3 class="card-title text-success mb-2">330</h3>
+
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-12 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <span class="fw-semibold d-block mb-3">Number of Classes</span>
+                    <h3 class="card-title text-danger mb-2">2</h3>
+
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
